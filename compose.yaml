@@ -1,0 +1,52 @@
+services:
+  frontend:
+    image: web-topic-final-frontend
+    build:
+      context: ./web-topic-final-frontend
+    command: npm start
+    depends_on:
+      - backend
+
+  frontend-css:
+    image: web-topic-final-frontend-css
+    command: npm run build-css-watch
+    build:
+      context: ./web-topic-final-frontend
+
+  backend:
+    image: web-topic-final-backend
+    build:
+      context: ./web-topic-final-backend
+    ports:
+      - 5000:5000
+    volumes:
+      - ./web-topic-final-backend/src:/backend/src
+      - ./web-topic-final-backend/public:/backend/public
+    environment:
+      PORT: 5000
+      ALLOWED_ORIGINS: http://localhost:3000,http://127.0.0.1:3000
+      MODE: dev
+      MONGODB_URI: mongodb://mongo:27017
+      MONGODB_USERNAME: root
+      MONGODB_PASSWORD: example
+      MONGODB_DATABASE: game-store
+      MONGODB_GAMES_COLLECTION: games
+      MONGODB_APPNAME:
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+
+  mongo-express:
+    image: mongo-express
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: example
+      ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/
+      ME_CONFIG_BASICAUTH: false
