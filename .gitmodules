@@ -1,0 +1,6 @@
+[submodule "web-topic-final-backend"]
+	path = web-topic-final-backend
+	url = git@github.com:TranThangBin/web-topic-final-backend.git
+[submodule "web-topic-final-frontend"]
+	path = web-topic-final-frontend
+	url = git@github.com:TranThangBin/web-topic-final-frontend.git
