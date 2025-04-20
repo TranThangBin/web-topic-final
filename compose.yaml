@@ -26,11 +26,16 @@ services:
       PORT: 5000
       ALLOWED_ORIGINS: http://localhost:3000,http://127.0.0.1:3000
       MODE: dev
+      SIGNING_KEY: bYzYtOw6WzUvijlYJkQ23BjeS5RsB2daKYFKtgU7MJU=
+      ACCESS_TOKEN_DURATION_IN_HOUR: 1
+      REFRESH_TOKEN_DURATION_IN_HOUR: 24
+      WORK_FACTOR: 13
       MONGODB_URI: mongodb://mongo:27017
       MONGODB_USERNAME: root
       MONGODB_PASSWORD: example
       MONGODB_DATABASE: game-store
       MONGODB_GAMES_COLLECTION: games
+      MONGODB_USERS_COLLECTION: users
       MONGODB_APPNAME:
     depends_on:
       - mongo
