@@ -4,14 +4,24 @@ services:
     build:
       context: ./web-topic-final-frontend
     command: npm start
+    volumes:
+      - ./web-topic-final-frontend/src:/frontend/src
+      - ./web-topic-final-frontend/public:/frontend/public
     depends_on:
       - backend
+    environment:
+      REACT_APP_API_URL: http://127.0.0.1:5000
+    ports:
+      - 3000:3000
 
   frontend-css:
     image: web-topic-final-frontend-css
     command: npm run build-css-watch
+    volumes:
+      - ./web-topic-final-frontend/src:/frontend/src
     build:
       context: ./web-topic-final-frontend
+    tty: true
 
   backend:
     image: web-topic-final-backend
