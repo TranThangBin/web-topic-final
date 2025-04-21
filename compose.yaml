@@ -11,6 +11,7 @@ services:
       - backend
     environment:
       REACT_APP_API_URL: http://127.0.0.1:5000
+      REACT_APP_CATEGORIES: roleplay,moba,sandbox
     ports:
       - 3000:3000
 
@@ -39,6 +40,7 @@ services:
       SIGNING_KEY: bYzYtOw6WzUvijlYJkQ23BjeS5RsB2daKYFKtgU7MJU=
       ACCESS_TOKEN_DURATION_IN_HOUR: 1
       REFRESH_TOKEN_DURATION_IN_HOUR: 24
+      CATEGORIES_PAIR: roleplay:RP,moba:MB,sandbox:SB
       WORK_FACTOR: 13
       MONGODB_URI: mongodb://mongo:27017
       MONGODB_USERNAME: root
