@@ -11,7 +11,7 @@ services:
       - backend
     environment:
       REACT_APP_API_URL: http://127.0.0.1:5000
-      REACT_APP_CATEGORIES_PAIR: roleplay:RP,moba:MB,sandbox:SB
+      REACT_APP_CATEGORIES_PAIR: roleplay:RP,moba:MB,sandbox:SB,arcade:AE,retro:RT,tower defense:TD,explore:EX,adventure:AD,survival:SV,battle royale:BR,hack and slash:HS,parkour:PK,horror:HR,platformmer:PL,strategy:ST,simulation:SM,thriller:TH,racing:RC,rouge like:RL,cooking:CK,music:MS
     ports:
       - 3000:3000
 
@@ -40,7 +40,7 @@ services:
       SIGNING_KEY: bYzYtOw6WzUvijlYJkQ23BjeS5RsB2daKYFKtgU7MJU=
       ACCESS_TOKEN_DURATION_IN_HOUR: 1
       REFRESH_TOKEN_DURATION_IN_HOUR: 24
-      CATEGORIES_PAIR: roleplay:RP,moba:MB,sandbox:SB
+      CATEGORIES_PAIR: roleplay:RP,moba:MB,sandbox:SB,arcade:AE,retro:RT,tower defense:TD,explore:EX,adventure:AD,survival:SV,battle royale:BR,hack and slash:HS,parkour:PK,horror:HR,platformmer:PL,strategy:ST,simulation:SM,thriller:TH,racing:RC,rouge like:RL,cooking:CK,music:MS
       WORK_FACTOR: 13
       MONGODB_URI: mongodb://mongo:27017
       MONGODB_USERNAME: root
@@ -57,6 +57,8 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
+    ports:
+      - 27017:27017
 
   mongo-express:
     image: mongo-express
