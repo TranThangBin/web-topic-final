@@ -3,6 +3,7 @@ services:
     image: web-topic-final-frontend
     build:
       context: ./web-topic-final-frontend
+      dockerfile: Dockerfile.dev
     command: npm start
     volumes:
       - ./web-topic-final-frontend/src:/frontend/src
@@ -30,6 +31,7 @@ services:
       context: ./web-topic-final-backend
     ports:
       - 5000:5000
+    command: npm run dev
     volumes:
       - ./web-topic-final-backend/src:/backend/src
       - ./web-topic-final-backend/public:/backend/public
